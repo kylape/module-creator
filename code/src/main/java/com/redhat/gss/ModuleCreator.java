@@ -22,6 +22,10 @@ public class ModuleCreator {
   }
 
   public static ModuleType parseArgs(String[] args) throws Exception {
+    if(args.length == 0 || "-h".equals(args[0]) || "--help".equals(args[0])) {
+      printHelp();
+      System.exit(0);
+    }
     ModuleType module = new ModuleType();
     String arg = null;
     for(int i=0; i < args.length; i++) {
@@ -137,5 +141,13 @@ public class ModuleCreator {
       Files.copy(fis, Paths.get(newResourceFile.getAbsolutePath()), REPLACE_EXISTING);
       fis.close();
     }
+  }
+
+  public static void printHelp() {
+    System.out.println("JBoss Module Creator: Create basic JBoss Module dir structure and module.xml");
+    System.out.println("Example usage: java -jar module-creator.jar \\");
+    System.out.println("\t--name com.redhat.gss:main \\");
+    System.out.println("\t--jars resource1.jar:resource2.jar \\");
+    System.out.println("\t--deps javax.api,org.apache.cxf");
   }
 }
