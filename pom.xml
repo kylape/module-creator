@@ -2,11 +2,15 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.redhat.gss</groupId>
-  <artifactId>module-crator</artifactId>
-  <packaging>jar</packaging>
+  <artifactId>module-creator</artifactId>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>JBoss Module Creator</name>
   <url>http://maven.apache.org</url>
+  <modules>
+    <module>code</module>
+    <module>package</module>
+  </modules>
   <dependencies>
     <dependency>
       <groupId>org.jboss.logging</groupId>
